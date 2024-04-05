@@ -4,7 +4,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-using namespace std;
+
 
 float Delta(float a, float b, float c);
 float function(float x, float a, float b, float c);
@@ -21,7 +21,8 @@ int main(){
     int opcao;
     
 
-    cout<<"\n\n========== Metodo da Bisseccao ==========\n\n    Qual tipo de Funcao a ser usada:\n\n    | Para funcoes polinomiais | = | 1 |\n    | Para funcoes racionais   | = | 2 |\n    | Para funcoes exponenciais| = | 3 |\n\n        Opcao: ";cin>>opcao;
+    std::cout<<"\n\n========== Metodo da Bisseccao ==========\n\n    Qual tipo de Funcao a ser usada:\n\n    | Para funcoes polinomiais | = | 1 |\n    | Para funcoes racionais   | = | 2 |\n    | Para funcoes exponenciais| = | 3 |\n\n        Opcao: ";
+    std::cin>>opcao;
 
     switch(opcao){
         case 1:
@@ -35,7 +36,7 @@ int main(){
         	exponencial();
         	break;
         default:
-            cout<<"\n ****caractere nao valido****\n";
+            std::cout<<"\n ****caractere nao valido****\n";
 			main();
 			break;
     }
@@ -48,7 +49,7 @@ int menu(){
 
     char op;
 
-    cout<<"\n\n---Deseja fazer outro calculo---\n    (S-sim | N-nao): ";cin>>op;
+    std::cout<<"\n\n---Deseja fazer outro calculo---\n    (S-sim | N-nao): ";std::cin>>op;
     op = toupper(op);
 
     switch(op){
@@ -61,7 +62,7 @@ int menu(){
             break;
         
         default:
-            cout<<"caractere nao valido\n";
+            std::cout<<"caractere nao valido\n";
 			break;
     }
    menu();
@@ -81,38 +82,38 @@ float function(float x, float a, float b, float c){
 
 int racional(){
 	
-	cout<<"\n\n |========= Metodo da Bisseccao =========|\n |para funcoes racionais ate segundo grau|\n |    para 1  grau  comece com  a = 0    |"<<endl<<endl;
+	std::cout<<"\n\n |========= Metodo da Bisseccao =========|\n |para funcoes racionais ate segundo grau|\n |    para 1  grau  comece com  a = 0    |"<<std::endl<<std::endl;
 // recebendo valores da funcao
-	cout<<"\n    Dividendo:\n\n";
-    cout<<"    Digite valor de a: ";cin >> a;
-    cout<<"    Digite valor de b: ";cin >> b;
-    cout<<"    Digite valor de c: ";cin >> c;
+	std::cout<<"\n    Dividendo:\n\n";
+    std::cout<<"    Digite valor de a: ";std::cin >> a;
+    std::cout<<"    Digite valor de b: ";std::cin >> b;
+    std::cout<<"    Digite valor de c: ";std::cin >> c;
     
     if(a==0&&b==0&&c==0){
-    	cout<<"    \n\nA funcao tem 0 como numerador e resulta em uma constante\n";
+    	std::cout<<"    \n\nA funcao tem 0 como numerador e resulta em uma constante\n";
     	menu();
 	}
-	cout<<"\n\n    Divisor:\n\n";
-    cout<<"    Digite valor de a: ";cin >> a2;
-    cout<<"    Digite valor de b: ";cin >> b2;
-    cout<<"    Digite valor de c: ";cin >> c2;
+	std::cout<<"\n\n    Divisor:\n\n";
+    std::cout<<"    Digite valor de a: ";std::cin >> a2;
+    std::cout<<"    Digite valor de b: ";std::cin >> b2;
+    std::cout<<"    Digite valor de c: ";std::cin >> c2;
     
     if(a2==0&&b2==0&&c2==0){
-    	cout<<"    \n\nA funcao tem 0 como denominador e resulta em uma indeterminacao matematica\n";
+    	std::cout<<"    \n\nA funcao tem 0 como denominador e resulta em uma indeterminacao matematica\n";
     	menu();
 	}
 
 // Passo 1
 
-    cout<<"\n    Digite primeiro valor de x: ";cin >> x1;
-    cout<<"    Digite segundo  valor de x: ";cin >> x2;
+    std::cout<<"\n    Digite primeiro valor de x: ";std::cin >> x1;
+    std::cout<<"    Digite segundo  valor de x: ";std::cin >> x2;
 
     var3 = ((function(x1, a, b, c))/(function(x1, a2, b2, c2)))*((function(x2, a, b, c))/(function(x2, a2, b2, c2)));
 
     while(var3>=0){
-        cout<<"\n---- tente outros valores ----\n";
-        cout<<"    Digite primeiro valor de x: ";cin >> x1;
-        cout<<"    Digite segundo  valor de x: ";cin >> x2;
+        std::cout<<"\n---- tente outros valores ----\n";
+        std::cout<<"    Digite primeiro valor de x: ";std::cin >> x1;
+        std::cout<<"    Digite segundo  valor de x: ";std::cin >> x2;
         
         var3 = ((function(x1, a, b, c))/(function(x1, a2, b2, c2)))*((function(x2, a, b, c))/(function(x2, a2, b2, c2)));
     }
@@ -135,7 +136,7 @@ int racional(){
     	if(iter==1){
     		erro=0;
 		}
-        cout<<"\n A funcao converge em aproximadamente x = "<< media<<" depois de "<<iter<<" iteracoes"<<"\n com erro = "<<erro<<"\n\n";
+        std::cout<<"\n A funcao converge em aproximadamente x = "<< media<<" depois de "<<iter<<" iteracoes"<<"\n com erro = "<<erro<<"\n\n";
         return 0;
     }
     erro = media - ((x1+x2)/2);
@@ -146,7 +147,7 @@ int racional(){
 	iter++;
     }
 
-    cout<<"\n A funcao converge em aproximadamente x = "<< media<<" depois de "<<iter<<" iteracoes"<<"\n com erro = "<<erro<<"\n\n";
+    std::cout<<"\n A funcao converge em aproximadamente x = "<< media<<" depois de "<<iter<<" iteracoes"<<"\n com erro = "<<erro<<"\n\n";
     
     menu();
 }
@@ -155,11 +156,11 @@ int racional(){
 int polinomial(){
 	
     
-    cout<<"\n\n |======== Metodo da Bisseccao ========|\n |      para funcoes  polinomiais      |\n |    para 1 grau  comece com a = 0    |"<<endl<<endl;
+    std::cout<<"\n\n |======== Metodo da Bisseccao ========|\n |      para funcoes  polinomiais      |\n |    para 1 grau  comece com a = 0    |"<<std::endl<<std::endl;
 // recebendo valores da funcao
-    cout<<"    Digite valor de a: ";cin >> a;
-    cout<<"    Digite valor de b: ";cin >> b;
-    cout<<"    Digite valor de c: ";cin >> c;
+    std::cout<<"    Digite valor de a: ";std::cin >> a;
+    std::cout<<"    Digite valor de b: ";std::cin >> b;
+    std::cout<<"    Digite valor de c: ";std::cin >> c;
 
 // verificando se e quadratica e se ha raizes reais 
     if(a!=0){
@@ -167,32 +168,32 @@ int polinomial(){
 		delta = Delta(a, b, c);
 
     	if(delta < 0){
-        	cout<<"\n==A funcao nao tem raizes reais==\n\n";
+        	std::cout<<"\n==A funcao nao tem raizes reais==\n\n";
         	menu();
     	}else if(delta == 0){
-        	cout<<"\n|A funcao tem duas raizes reais iguais|\n|    e nao convege via esse metodo    | \n\n";
+        	std::cout<<"\n|A funcao tem duas raizes reais iguais|\n|    e nao convege via esse metodo    | \n\n";
         	menu();
     	}
 	}else if(a==0&&b==0){   /* verificando se afin e constante */
 		if(c==0){
-			cout<<"\n== A funcao e uma constante sobre o eixo x ==\n\n";
+			std::cout<<"\n== A funcao e uma constante sobre o eixo x ==\n\n";
         	menu();
 		}else{
-			cout<<"\n== A funcao e uma constante e nao tem raizes reais ==\n\n";
+			std::cout<<"\n== A funcao e uma constante e nao tem raizes reais ==\n\n";
         	menu();
 		}
 		
 	}
 // Passo 1
-    cout<<"    Digite primeiro valor de x: ";cin >> x1;
-    cout<<"    Digite segundo  valor de x: ";cin >> x2;
+    std::cout<<"    Digite primeiro valor de x: ";std::cin >> x1;
+    std::cout<<"    Digite segundo  valor de x: ";std::cin >> x2;
 
     var3 = (function(x1, a, b, c))*(function(x2, a, b, c));
 
     while(var3>=0){
-        cout<<"\n---- tente outros valores ----\n";
-        cout<<"    Digite primeiro valor de x: ";cin >> x1;
-        cout<<"    Digite segundo  valor de x: ";cin >> x2;
+        std::cout<<"\n---- tente outros valores ----\n";
+        std::cout<<"    Digite primeiro valor de x: ";std::cin >> x1;
+        std::cout<<"    Digite segundo  valor de x: ";std::cin >> x2;
         
         var3 = (function(x1, a, b, c))*(function(x2, a, b, c));
     }
@@ -212,7 +213,7 @@ int polinomial(){
         x2 = media;
         
     }else{
-        cout<<"\n A funcao converge em aproximadamente x = "<< media<<" depois de "<<iter<<" iteracoes"<<"\n com erro = "<<erro<<"\n\n";
+        std::cout<<"\n A funcao converge em aproximadamente x = "<< media<<" depois de "<<iter<<" iteracoes"<<"\n com erro = "<<erro<<"\n\n";
         return 0;
     }
     erro = media - ((x1+x2)/2);
@@ -223,41 +224,41 @@ int polinomial(){
 	iter++;
     }
 
-    cout<<"\n A funcao converge em aproximadamente x = "<< media<<" depois de "<<iter<<" iteracoes"<<"\n com erro = "<<erro<<"\n\n";
+    std::cout<<"\n A funcao converge em aproximadamente x = "<< media<<" depois de "<<iter<<" iteracoes"<<"\n com erro = "<<erro<<"\n\n";
     
     menu();
 }
 
 int exponencial(){
 	
-	cout<<"\n\n |======== Metodo da Bisseccao ========|\n";
-	cout<<" |      para funcoes exponenciais      |\n\n    vamos usar:\n\n    f(x) = ('a' vezes 'e' elevado a ('b'vezes 'x')) mais 'c' "<<"\n    f(x) = (a*e^(bx))+c ";
+	std::cout<<"\n\n |======== Metodo da Bisseccao ========|\n";
+	std::cout<<" |      para funcoes exponenciais      |\n\n    vamos usar:\n\n    f(x) = ('a' vezes 'e' elevado a ('b'vezes 'x')) mais 'c' "<<"\n    f(x) = (a*e^(bx))+c ";
 	
-	cout<<"\n\n    Digite valor de a: ";cin >> a;
-    cout<<"    Digite valor de b: ";cin >> b;
-    cout<<"    Digite valor de c: ";cin >> c;
+	std::cout<<"\n\n    Digite valor de a: ";std::cin >> a;
+    std::cout<<"    Digite valor de b: ";std::cin >> b;
+    std::cout<<"    Digite valor de c: ";std::cin >> c;
 
  
     if(a==0&&b==0){   /* verificando se f(x) e constante */
 		if(c==0){
-			cout<<"\n== A funcao e uma constante sobre o eixo x ==\n\n";
+			std::cout<<"\n== A funcao e uma constante sobre o eixo x ==\n\n";
         	menu();
 		}else{
-			cout<<"\n== A funcao e uma constante e nao tem raizes reais ==\n\n";
+			std::cout<<"\n== A funcao e uma constante e nao tem raizes reais ==\n\n";
         	menu();
 		}
 		
 	}
 // Passo 1
-    cout<<"    Digite primeiro valor de x: ";cin >> x1;
-    cout<<"    Digite segundo  valor de x: ";cin >> x2;
+    std::cout<<"    Digite primeiro valor de x: ";std::cin >> x1;
+    std::cout<<"    Digite segundo  valor de x: ";std::cin >> x2;
 
     var3 = ((a*exp(b*x1))+c)*((a*exp(b*x2))+c);
 
     while(var3>=0){
-        cout<<"\n---- tente outros valores ----\n";
-        cout<<"    Digite primeiro valor de x: ";cin >> x1;
-        cout<<"    Digite segundo  valor de x: ";cin >> x2;
+        std::cout<<"\n---- tente outros valores ----\n";
+        std::cout<<"    Digite primeiro valor de x: ";std::cin >> x1;
+        std::cout<<"    Digite segundo  valor de x: ";std::cin >> x2;
         
         var3 = ((a*exp(b*x1))+c)*((a*exp(b*x2))+c);
     }
@@ -277,7 +278,7 @@ int exponencial(){
         x2 = media;
         
     }else{
-        cout<<"\n A funcao converge em aproximadamente x = "<< media<<" depois de "<<iter<<" iteracoes"<<"\n com erro = "<<erro<<"\n\n";
+        std::cout<<"\n A funcao converge em aproximadamente x = "<< media<<" depois de "<<iter<<" iteracoes"<<"\n com erro = "<<erro<<"\n\n";
         return 0;
     }
     erro = media - ((x1+x2)/2);
@@ -288,7 +289,7 @@ int exponencial(){
 	iter++;
     }
 
-    cout<<"\n A funcao converge em aproximadamente x = "<< media<<" depois de "<<iter<<" iteracoes"<<"\n com erro = "<<erro<<"\n\n";
+    std::cout<<"\n A funcao converge em aproximadamente x = "<< media<<" depois de "<<iter<<" iteracoes"<<"\n com erro = "<<erro<<"\n\n";
     
     menu();
 }
